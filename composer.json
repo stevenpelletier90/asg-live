@@ -23,6 +23,11 @@
 	"scripts": {
 		"phpcs": "phpcs",
 		"phpcbf": "phpcbf",
-		"phpstan": "phpstan analyse"
+		"phpstan": "phpstan analyse",
+		"build": "php build.php",
+		"lint": [
+			"@phpcs",
+			"@phpstan"
+		]
 	}
 }

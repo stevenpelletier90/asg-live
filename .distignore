@@ -6,6 +6,9 @@
 .gitignore
 .editorconfig
 .distignore
+.prettierrc
+.prettierignore
+.claude
 
 # Dependencies and build tools
 node_modules

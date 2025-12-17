@@ -2,6 +2,9 @@
 /vendor/
 /node_modules/
 
+# Distribution build
+/dist/
+
 # Composer
 composer.lock
 
