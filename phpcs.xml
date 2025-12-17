@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<ruleset name="ASG Live Theme Coding Standards">
+	<description>PHP_CodeSniffer ruleset for ASG Live WordPress Theme</description>
+
+	<!-- Scan all files in directory -->
+	<file>.</file>
+
+	<!-- Exclude paths -->
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>*.min.js</exclude-pattern>
+	<exclude-pattern>*.min.css</exclude-pattern>
+
+	<!-- Show progress and sniff codes in all reports -->
+	<arg value="ps"/>
+	<arg name="colors"/>
+
+	<!-- Check up to 8 files simultaneously -->
+	<arg name="parallel" value="8"/>
+
+	<!-- Use WordPress Coding Standards -->
+	<rule ref="WordPress">
+		<!-- Allow short array syntax -->
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+		<!-- Allow file names that don't match WordPress conventions (like front-page.php) -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+	</rule>
+
+	<!-- WordPress theme text domain -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="asg-live"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Verify that no WP functions are used which are deprecated or removed -->
+	<rule ref="WordPress.WP.DeprecatedFunctions">
+		<properties>
+			<property name="minimum_wp_version" value="6.0"/>
+		</properties>
+	</rule>
+
+	<!-- PHP Compatibility -->
+	<rule ref="PHPCompatibilityWP"/>
+	<config name="testVersion" value="7.4-"/>
+
+	<!-- Minimum WordPress version -->
+	<config name="minimum_wp_version" value="6.0"/>
+
+	<!-- Allow theme-specific file naming -->
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true"/>
+		</properties>
+	</rule>
+
+	<!-- Prefixes for hooks, functions, classes -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="asg_live"/>
+				<element value="ASG_LIVE"/>
+			</property>
+		</properties>
+		<!-- Exclude wp_body_open shim - must use exact WordPress function name -->
+		<exclude-pattern>inc/template-tags.php</exclude-pattern>
+	</rule>
+
+	<!-- Exclude file comment spacing issues from files with PHP/HTML mixing -->
+	<rule ref="Squiz.Commenting.FileComment.SpacingAfterComment">
+		<exclude-pattern>*.php</exclude-pattern>
+	</rule>
+</ruleset>

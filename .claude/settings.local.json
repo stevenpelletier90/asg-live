@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__context7__get-library-docs",
+      "Bash(php -l:*)",
+      "Bash(xxd:*)",
+      "Bash(cat:*)",
+      "Bash(python:*)",
+      "Bash(composer install:*)",
+      "Bash(composer phpcs:*)",
+      "Bash(composer phpstan:*)",
+      "Bash(composer phpcbf:*)",
+      "Bash(vendor/bin/phpcs:*)"
+    ]
+  }
+}

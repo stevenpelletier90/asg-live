@@ -1,0 +1,17 @@
+includes:
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+	level: 5
+	paths:
+		- .
+	excludePaths:
+		- vendor
+		- node_modules
+	scanDirectories:
+		- .
+	treatPhpDocTypesAsCertain: false
+	reportUnmatchedIgnoredErrors: false
+	ignoreErrors:
+		# Standard WordPress pattern for backwards compatibility
+		- '#Property WP_Customize_Manager::\$selective_refresh .* in isset\(\) is not nullable#'

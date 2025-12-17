@@ -1,0 +1,46 @@
+# Files to exclude from theme distribution/zip
+# Used by build tools when packaging for WordPress.org or distribution
+
+# Development files
+.git
+.gitignore
+.editorconfig
+.distignore
+
+# Dependencies and build tools
+node_modules
+vendor
+composer.json
+composer.lock
+package.json
+package-lock.json
+
+# Code quality tools
+phpcs.xml
+phpstan.neon
+.phpcs.xml.dist
+
+# Documentation
+CLAUDE.md
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
+
+# Tests
+tests
+phpunit.xml
+phpunit.xml.dist
+
+# CI/CD
+.github
+.travis.yml
+.gitlab-ci.yml
+
+# IDE
+.idea
+.vscode
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
