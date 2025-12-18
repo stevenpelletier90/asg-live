@@ -2,7 +2,7 @@
 /**
  * The main template file
  *
- * @package ASG_Live
+ * @package ASG
  */
 
 get_header();
@@ -13,16 +13,12 @@ get_header();
 	if ( have_posts() ) :
 		while ( have_posts() ) :
 			the_post();
-			get_template_part( 'template-parts/content', get_post_type() );
+			the_title( '<h2>', '</h2>' );
+			the_content();
 		endwhile;
-
-		the_posts_navigation();
-	else :
-		get_template_part( 'template-parts/content', 'none' );
 	endif;
 	?>
 </main>
 
 <?php
-get_sidebar();
 get_footer();

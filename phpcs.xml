@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="ASG Live Theme Coding Standards">
-	<description>PHP_CodeSniffer ruleset for ASG Live WordPress Theme</description>
+<ruleset name="ASG Theme Coding Standards">
+	<description>PHP_CodeSniffer ruleset for ASG WordPress Theme</description>
 
 	<!-- Scan all files in directory -->
 	<file>.</file>
@@ -30,7 +30,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="asg-live"/>
+				<element value="asg"/>
 			</property>
 		</properties>
 	</rule>
@@ -60,12 +60,12 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="asg_live"/>
-				<element value="ASG_LIVE"/>
+				<element value="asg"/>
+				<element value="ASG"/>
 			</property>
 		</properties>
-		<!-- Exclude wp_body_open shim - must use exact WordPress function name -->
-		<exclude-pattern>inc/template-tags.php</exclude-pattern>
+		<!-- Allow short prefix - "asg" is intentional for this theme -->
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
 	</rule>
 
 	<!-- Exclude file comment spacing issues from files with PHP/HTML mixing -->

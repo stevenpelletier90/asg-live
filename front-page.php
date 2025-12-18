@@ -1,43 +1,27 @@
 <?php
 /**
- * The front page template file
+ * The front page template
  *
- * This template is used when a static front page is set,
- * or as a fallback when no front page is configured.
- *
- * @package ASG_Live
+ * @package ASG
  */
 
 get_header();
 ?>
 
 <main id="primary" class="site-main">
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="container">
+			<h1>Welcome to <?php bloginfo( 'name' ); ?></h1>
+		</div>
+	</section>
+
+	<!-- Page Content -->
 	<?php
-	// Hero Section.
-	get_template_part( 'template-parts/sections/hero' );
-
-	// Welcome/Services Section.
-	get_template_part( 'template-parts/sections/services' );
-
-	// CTA Section.
-	get_template_part( 'template-parts/sections/cta' );
-
-	// If there's page content from the editor, display it.
 	if ( have_posts() ) :
 		while ( have_posts() ) :
 			the_post();
-			$asg_live_content = get_the_content();
-			if ( ! empty( trim( $asg_live_content ) ) ) :
-				?>
-				<section class="page-content">
-					<div class="container">
-						<div class="entry-content">
-							<?php the_content(); ?>
-						</div>
-					</div>
-				</section>
-				<?php
-			endif;
+			the_content();
 		endwhile;
 	endif;
 	?>
