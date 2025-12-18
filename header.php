@@ -22,33 +22,44 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'asg-live' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			if ( has_custom_logo() ) :
-				the_custom_logo();
-			else :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-				$asg_live_description = get_bloginfo( 'description', 'display' );
-				if ( $asg_live_description || is_customize_preview() ) :
-					?>
-					<p class="site-description"><?php echo esc_html( $asg_live_description ); ?></p>
+		<div class="header-inner">
+			<div class="site-branding">
+				<?php if ( has_custom_logo() ) : ?>
+					<?php the_custom_logo(); ?>
+				<?php else : ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<span class="site-title"><?php bloginfo( 'name' ); ?></span>
+					</a>
 				<?php endif; ?>
-			<?php endif; ?>
-		</div>
+			</div>
 
-		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-				<?php esc_html_e( 'Menu', 'asg-live' ); ?>
+				<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'asg-live' ); ?></span>
+				<?php asg_live_icon( 'menu' ); ?>
 			</button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'primary',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav>
+
+			<nav id="site-navigation" class="main-navigation">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'primary',
+						'menu_id'        => 'primary-menu',
+						'menu_class'     => 'nav-menu',
+						'container'      => '',
+						'walker'         => new ASG_Live_Nav_Walker(),
+						'fallback_cb'    => '__return_false',
+					)
+				);
+				?>
+				<div class="header-cta">
+					<?php
+					$asg_live_cta_text = asg_live_get_field( 'header_cta_text', __( 'Contact Us', 'asg-live' ), 'option' );
+					$asg_live_cta_link = asg_live_get_field( 'header_cta_link', '/contact/', 'option' );
+					?>
+					<a href="<?php echo esc_url( $asg_live_cta_link ); ?>" class="btn btn--primary">
+						<?php echo esc_html( $asg_live_cta_text ); ?>
+					</a>
+				</div>
+			</nav>
+		</div>
 	</header>

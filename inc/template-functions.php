@@ -22,6 +22,15 @@ function asg_live_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	// Add page-specific classes.
+	if ( is_front_page() ) {
+		$classes[] = 'page-front';
+	}
+
+	if ( is_page() ) {
+		$classes[] = 'page-inner';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'asg_live_body_classes' );

@@ -11,35 +11,24 @@ if ( ! defined( 'ASG_LIVE_VERSION' ) ) {
 
 /**
  * Theme setup
- *
- * Sets up theme defaults and registers support for various WordPress features.
- * This function is hooked into the after_setup_theme hook, which runs before the
- * init hook. The init hook is too late for some features, such as indicating
- * support for post thumbnails.
  */
 function asg_live_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 */
+	// Make theme available for translation.
 	load_theme_textdomain( 'asg-live', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
+	// Let WordPress manage the document title.
 	add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
+	// Enable support for Post Thumbnails.
 	add_theme_support( 'post-thumbnails' );
+
+	// Custom image sizes.
+	add_image_size( 'asg-hero', 800, 600, true );
+	add_image_size( 'asg-card', 400, 300, true );
+	add_image_size( 'asg-banner', 1920, 400, true );
 
 	// Register navigation menus.
 	register_nav_menus(
@@ -49,10 +38,7 @@ function asg_live_setup() {
 		)
 	);
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
+	// Switch default core markup to HTML5.
 	add_theme_support(
 		'html5',
 		array(
@@ -66,18 +52,6 @@ function asg_live_setup() {
 		)
 	);
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'asg_live_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -85,39 +59,20 @@ function asg_live_setup() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 250,
+			'height'      => 80,
 			'width'       => 250,
 			'flex-width'  => true,
 			'flex-height' => true,
 		)
 	);
-
-	// Add support for Block Styles.
-	add_theme_support( 'wp-block-styles' );
-
-	// Add support for full and wide align images.
-	add_theme_support( 'align-wide' );
-
-	// Add support for responsive embedded content.
-	add_theme_support( 'responsive-embeds' );
-
-	// Add support for editor styles.
-	add_theme_support( 'editor-styles' );
-
-	// Enqueue editor styles.
-	add_editor_style( 'assets/css/editor-style.css' );
 }
 add_action( 'after_setup_theme', 'asg_live_setup' );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
+ * Set the content width
  */
 function asg_live_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'asg_live_content_width', 800 );
+	$GLOBALS['content_width'] = apply_filters( 'asg_live_content_width', 1200 );
 }
 add_action( 'after_setup_theme', 'asg_live_content_width', 0 );
 
@@ -125,6 +80,14 @@ add_action( 'after_setup_theme', 'asg_live_content_width', 0 );
  * Enqueue scripts and styles
  */
 function asg_live_scripts() {
+	// Google Fonts - Inter (external resource, version not applicable).
+	wp_enqueue_style(
+		'asg-live-fonts',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+		array(),
+		ASG_LIVE_VERSION
+	);
+
 	// Main stylesheet (style.css).
 	wp_enqueue_style( 'asg-live-style', get_stylesheet_uri(), array(), ASG_LIVE_VERSION );
 
@@ -132,7 +95,7 @@ function asg_live_scripts() {
 	wp_enqueue_style(
 		'asg-live-main',
 		get_template_directory_uri() . '/assets/css/main.css',
-		array(),
+		array( 'asg-live-fonts' ),
 		ASG_LIVE_VERSION
 	);
 
@@ -212,74 +175,79 @@ if ( file_exists( get_template_directory() . '/inc/customizer.php' ) ) {
 }
 
 /**
- * Register block pattern categories.
+ * ACF Field Registration.
  */
-function asg_live_register_block_pattern_categories() {
-	register_block_pattern_category(
-		'asg-live',
+if ( file_exists( get_template_directory() . '/inc/acf-fields.php' ) ) {
+	require get_template_directory() . '/inc/acf-fields.php';
+}
+
+/**
+ * Custom Nav Walker.
+ */
+if ( file_exists( get_template_directory() . '/inc/class-asg-live-nav-walker.php' ) ) {
+	require get_template_directory() . '/inc/class-asg-live-nav-walker.php';
+}
+
+/**
+ * ACF Options Page
+ */
+if ( function_exists( 'acf_add_options_page' ) ) {
+	acf_add_options_page(
 		array(
-			'label' => esc_html__( 'ASG Live', 'asg-live' ),
+			'page_title' => __( 'Theme Settings', 'asg-live' ),
+			'menu_title' => __( 'Theme Settings', 'asg-live' ),
+			'menu_slug'  => 'theme-settings',
+			'capability' => 'edit_posts',
+			'redirect'   => false,
+			'icon_url'   => 'dashicons-admin-customizer',
+			'position'   => 2,
 		)
 	);
 }
-add_action( 'init', 'asg_live_register_block_pattern_categories' );
 
 /**
- * Register block patterns.
+ * Get ACF field with fallback
  *
- * Patterns are automatically registered from the /patterns directory
- * when using WordPress 6.0+. For older versions, we register them manually.
+ * @param string $field_name    ACF field name.
+ * @param mixed  $default_value Default value if field is empty.
+ * @param mixed  $post_id       Post ID or 'option' for options page.
+ * @return mixed
  */
-function asg_live_register_block_patterns() {
-	// WordPress 6.0+ automatically registers patterns from /patterns directory.
-	// This function is here for backwards compatibility with older versions.
-	if ( version_compare( get_bloginfo( 'version' ), '6.0', '<' ) ) {
-		$patterns_dir = get_template_directory() . '/patterns/';
+function asg_live_get_field( $field_name, $default_value = '', $post_id = false ) {
+	if ( function_exists( 'get_field' ) ) {
+		$value = get_field( $field_name, $post_id );
+		return ! empty( $value ) ? $value : $default_value;
+	}
+	return $default_value;
+}
 
-		if ( is_dir( $patterns_dir ) ) {
-			$pattern_files = glob( $patterns_dir . '*.php' );
+/**
+ * Display SVG icon
+ *
+ * @param string $icon_name Icon name.
+ * @param string $css_class Additional CSS class.
+ */
+function asg_live_icon( $icon_name, $css_class = '' ) {
+	$icons = array(
+		'menu'          => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>',
+		'close'         => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
+		'phone'         => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>',
+		'email'         => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
+		'location'      => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>',
+		'users'         => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+		'grid'          => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>',
+		'map-pin'       => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>',
+		'arrow-right'   => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+		'chevron-left'  => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>',
+		'chevron-right' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>',
+	);
 
-			foreach ( $pattern_files as $pattern_file ) {
-				// Get pattern metadata from file header.
-				$pattern_data = get_file_data(
-					$pattern_file,
-					array(
-						'title'       => 'Title',
-						'slug'        => 'Slug',
-						'categories'  => 'Categories',
-						'keywords'    => 'Keywords',
-						'description' => 'Description',
-					)
-				);
-
-				if ( empty( $pattern_data['slug'] ) ) {
-					continue;
-				}
-
-				ob_start();
-				include $pattern_file;
-				$content = ob_get_clean();
-
-				$categories = ! empty( $pattern_data['categories'] )
-					? array_map( 'trim', explode( ',', $pattern_data['categories'] ) )
-					: array();
-
-				$keywords = ! empty( $pattern_data['keywords'] )
-					? array_map( 'trim', explode( ',', $pattern_data['keywords'] ) )
-					: array();
-
-				register_block_pattern(
-					$pattern_data['slug'],
-					array(
-						'title'       => $pattern_data['title'],
-						'description' => $pattern_data['description'],
-						'content'     => $content,
-						'categories'  => $categories,
-						'keywords'    => $keywords,
-					)
-				);
-			}
+	if ( isset( $icons[ $icon_name ] ) ) {
+		$svg_class = 'icon icon-' . esc_attr( $icon_name );
+		if ( $css_class ) {
+			$svg_class .= ' ' . esc_attr( $css_class );
 		}
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG is hardcoded above.
+		echo str_replace( '<svg', '<svg class="' . esc_attr( $svg_class ) . '"', $icons[ $icon_name ] );
 	}
 }
-add_action( 'init', 'asg_live_register_block_patterns' );

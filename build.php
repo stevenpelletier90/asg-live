@@ -51,10 +51,10 @@ $ignore_patterns[] = 'dist';
 $ignore_patterns[] = 'build.php';
 $ignore_patterns[] = '.git';
 
-echo "Ignore patterns loaded: " . count( $ignore_patterns ) . "\n";
+echo 'Ignore patterns loaded: ' . count( $ignore_patterns ) . "\n";
 
 // Copy files.
-$copied = 0;
+$copied   = 0;
 $iterator = new RecursiveIteratorIterator(
 	new RecursiveDirectoryIterator( $source_dir, RecursiveDirectoryIterator::SKIP_DOTS ),
 	RecursiveIteratorIterator::SELF_FIRST
@@ -81,7 +81,7 @@ foreach ( $iterator as $item ) {
 			mkdir( $target_dir, 0755, true );
 		}
 		copy( $item->getPathname(), $target_path );
-		$copied++;
+		++$copied;
 	}
 }
 

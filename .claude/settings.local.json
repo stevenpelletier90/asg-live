@@ -12,7 +12,12 @@
       "Bash(composer phpcbf:*)",
       "Bash(vendor/bin/phpcs:*)",
       "Bash(composer build:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(tree:*)",
+      "Bash(ls:*)",
+      "Bash(if not exist \"C:\\\\Users\\\\steve\\\\Downloads\\\\asg-live\\\\template-parts\\\\sections\" mkdir \"C:\\\\Users\\\\steve\\\\Downloads\\\\asg-live\\\\template-parts\\\\sections\")",
+      "Bash(php build.php:*)",
+      "Bash(vendor/bin/phpstan analyse:*)"
     ]
   }
 }
