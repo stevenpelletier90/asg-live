@@ -17,7 +17,8 @@
       "Bash(ls:*)",
       "Bash(if not exist \"C:\\\\Users\\\\steve\\\\Downloads\\\\asg-live\\\\template-parts\\\\sections\" mkdir \"C:\\\\Users\\\\steve\\\\Downloads\\\\asg-live\\\\template-parts\\\\sections\")",
       "Bash(php build.php:*)",
-      "Bash(vendor/bin/phpstan analyse:*)"
+      "Bash(vendor/bin/phpstan analyse:*)",
+      "Bash(vendor/bin/phpcbf:*)"
     ]
   }
 }

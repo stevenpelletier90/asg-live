@@ -88,30 +88,37 @@ add_action( 'wp_enqueue_scripts', 'asg_scripts' );
 /**
  * ACF Options Page
  */
-if ( function_exists( 'acf_add_options_page' ) ) {
-	acf_add_options_page(
-		array(
-			'page_title' => 'Theme Settings',
-			'menu_title' => 'Theme Settings',
-			'menu_slug'  => 'theme-settings',
-			'capability' => 'edit_posts',
-			'redirect'   => false,
-		)
-	);
+function asg_acf_options_page() {
+	if ( function_exists( 'acf_add_options_page' ) ) {
+		acf_add_options_page(
+			array(
+				'page_title' => 'Theme Settings',
+				'menu_title' => 'Theme Settings',
+				'menu_slug'  => 'theme-settings',
+				'capability' => 'edit_posts',
+				'redirect'   => false,
+				'icon_url'   => 'dashicons-admin-generic',
+				'position'   => 59,
+			)
+		);
+	}
 }
+add_action( 'acf/init', 'asg_acf_options_page' );
 
 /**
- * Get ACF field with fallback
+ * Helper function to get ACF field with fallback
  *
- * @param string $field_name    ACF field name.
- * @param mixed  $default_value Default value if field is empty.
- * @param mixed  $post_id       Post ID or 'option' for options page.
+ * @param string $field_name The ACF field name.
+ * @param mixed  $default    Default value if field is empty.
+ * @param mixed  $post_id    Post ID or 'option' for options page.
  * @return mixed
  */
-function asg_get_field( $field_name, $default_value = '', $post_id = false ) {
-	if ( function_exists( 'get_field' ) ) {
-		$value = get_field( $field_name, $post_id );
-		return ! empty( $value ) ? $value : $default_value;
+function asg_get_field( $field_name, $default = '', $post_id = false ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return $default;
 	}
-	return $default_value;
+
+	$value = get_field( $field_name, $post_id );
+
+	return ! empty( $value ) ? $value : $default;
 }
