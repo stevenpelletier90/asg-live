@@ -55,22 +55,14 @@ add_action( 'after_setup_theme', 'asg_setup' );
  * Enqueue scripts and styles
  */
 function asg_scripts() {
-	// Google Fonts - Libre Baskerville + DM Sans.
-	wp_enqueue_style(
-		'asg-fonts',
-		'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap',
-		array(),
-		ASG_VERSION
-	);
-
 	// Main stylesheet (required by WordPress).
-	wp_enqueue_style( 'asg-style', get_stylesheet_uri(), array( 'asg-fonts' ), ASG_VERSION );
+	wp_enqueue_style( 'asg-style', get_stylesheet_uri(), array(), ASG_VERSION );
 
-	// Theme styles.
+	// Theme styles (includes local @font-face declarations).
 	wp_enqueue_style(
 		'asg-main',
 		get_template_directory_uri() . '/assets/css/main.css',
-		array( 'asg-fonts' ),
+		array( 'asg-style' ),
 		ASG_VERSION
 	);
 

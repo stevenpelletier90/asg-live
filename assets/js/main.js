@@ -19,7 +19,7 @@
 			return;
 		}
 
-		if (window.scrollY > 20) {
+		if (window.scrollY > 50) {
 			header.classList.add( 'is-scrolled' );
 		} else {
 			header.classList.remove( 'is-scrolled' );

@@ -47,13 +47,7 @@
 		<div class="footer-bottom">
 			<div class="footer-inner">
 				<p class="footer-copyright">
-					<?php
-					printf(
-						'&copy; Copyright %s | by %s | All Rights Reserved',
-						esc_html( gmdate( 'Y' ) ),
-						esc_html( get_bloginfo( 'name' ) )
-					);
-					?>
+					&copy; Copyright <?php echo esc_html( gmdate( 'Y' ) ); ?> | by <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a> | All Rights Reserved
 				</p>
 			</div>
 		</div>

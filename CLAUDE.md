@@ -8,7 +8,7 @@ ASG is a skeleton WordPress theme for Anesthesia Services Group. This is a minim
 
 ## Theme Structure
 
-```
+```bash
 asg/
 ├── style.css          # Theme metadata (required)
 ├── theme.json         # Minimal block editor settings
@@ -98,6 +98,7 @@ vendor/bin/phpcbf
 Copy the theme folder to `wp-content/themes/`. No build step required.
 
 Exclude dev files:
+
 - `vendor/`, `node_modules/`, `.git/`
 - `composer.json`, `composer.lock`
 - `phpcs.xml`, `phpstan.neon`
