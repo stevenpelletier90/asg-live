@@ -26,10 +26,7 @@
 				<?php else : ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo">
 						<span class="logo-icon">
-							<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
-								<path d="M20 10V30M14 16H26M14 24H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-							</svg>
+							<i class="fa-solid fa-staff-snake"></i>
 						</span>
 						<span class="logo-text">
 							<span class="logo-name"><?php bloginfo( 'name' ); ?></span>

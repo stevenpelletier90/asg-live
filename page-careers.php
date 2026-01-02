@@ -15,6 +15,9 @@ get_header();
 		<div class="page-hero-overlay"></div>
 		<div class="page-hero-content">
 			<h1 class="page-hero-title">Careers</h1>
+			<p class="page-hero-subtitle">
+				<a href="#apply">Application Form Below <i class="fa-solid fa-arrow-down"></i></a>
+			</p>
 		</div>
 	</section>
 
@@ -31,15 +34,12 @@ get_header();
 					<div class="content-cta">
 						<a href="#apply" class="btn btn-primary">
 							Apply Today
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="5" y1="12" x2="19" y2="12"></line>
-								<polyline points="12 5 19 12 12 19"></polyline>
-							</svg>
+							<i class="fa-solid fa-arrow-down"></i>
 						</a>
 					</div>
 				</div>
 				<div class="content-image content-image--featured">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/careers-hero.jpg" alt="Join Our Team">
+					<img src="/wp-content/uploads/2026/01/surgeons.jpg" alt="Join Our Team">
 				</div>
 			</div>
 		</div>
@@ -65,7 +65,7 @@ get_header();
 					</ul>
 				</div>
 				<div class="content-image">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/careers-benefits.jpg" alt="Career Benefits">
+					<img src="/wp-content/uploads/2026/01/process-1.jpg" alt="Career Benefits">
 				</div>
 			</div>
 		</div>
@@ -83,37 +83,69 @@ get_header();
 						<p>Our positions offer the chance to work in diverse surgical settings, from ambulatory surgery centers to office-based practices, providing a wide range of clinical experiences.</p>
 					</div>
 					<div class="content-cta">
-						<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">
-							View Openings
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="5" y1="12" x2="19" y2="12"></line>
-								<polyline points="12 5 19 12 12 19"></polyline>
-							</svg>
+						<a href="#apply" class="btn btn-primary">
+							Apply Now
+							<i class="fa-solid fa-arrow-down"></i>
 						</a>
 					</div>
 				</div>
 				<div class="content-image">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/careers-opportunities.jpg" alt="Career Opportunities">
+					<img src="/wp-content/uploads/2026/01/operating-room.jpg" alt="Career Opportunities">
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- CTA Section -->
-	<section class="cta-section" id="apply">
-		<div class="cta-overlay"></div>
-		<div class="cta-content container">
-			<h2 class="cta-title">Ready to Join Our Team?</h2>
-			<p class="cta-text">Take the next step in your career and become part of the ASG family. Contact us today to learn about available positions.</p>
-			<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">
-				Contact Us
-				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<line x1="5" y1="12" x2="19" y2="12"></line>
-					<polyline points="12 5 19 12 12 19"></polyline>
-				</svg>
-			</a>
+	<!-- Application Form Section -->
+	<section class="application-form-section" id="apply">
+		<div class="container">
+			<header class="section-header">
+				<h2 class="section-title">Apply Now</h2>
+				<p class="section-subtitle">Ready to join our team? Fill out the form below and we'll be in touch.</p>
+			</header>
+			<div class="application-form-wrapper">
+				<?php echo do_shortcode( '[gravityform id="2" title="false" description="false" ajax="true" tabindex="200"]' ); ?>
+			</div>
 		</div>
 	</section>
+
+	<!-- Recruitment Process Section -->
+	<section class="recruitment-process">
+		<div class="container">
+			<h2 class="section-title">What Does The Recruitment Process Look Like?</h2>
+			<div class="process-steps">
+				<div class="process-step">
+					<div class="process-icon">
+						<i class="fa-solid fa-phone-volume"></i>
+					</div>
+					<h3 class="process-title">1. Phone Interview</h3>
+					<p class="process-text">The initial conversation.</p>
+				</div>
+				<div class="process-step">
+					<div class="process-icon">
+						<i class="fa-solid fa-users"></i>
+					</div>
+					<h3 class="process-title">2. First Interview</h3>
+					<p class="process-text">In-person meeting.</p>
+				</div>
+				<div class="process-step">
+					<div class="process-icon">
+						<i class="fa-solid fa-gear"></i>
+					</div>
+					<h3 class="process-title">3. Technical Test</h3>
+					<p class="process-text">Let's see what you know!</p>
+				</div>
+				<div class="process-step">
+					<div class="process-icon">
+						<i class="fa-solid fa-handshake"></i>
+					</div>
+					<h3 class="process-title">4. Offer</h3>
+					<p class="process-text">Welcome to the team!</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
 </main>
 
 <?php

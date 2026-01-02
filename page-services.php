@@ -32,7 +32,7 @@ get_header();
 					</div>
 				</div>
 				<div class="content-image">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/services-anesthesia.jpg" alt="Anesthesia Services">
+					<img src="/wp-content/uploads/2026/01/operating-room.jpg" alt="Anesthesia Services">
 				</div>
 			</div>
 		</div>
@@ -60,7 +60,7 @@ get_header();
 					</ul>
 				</div>
 				<div class="content-image">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/services-team.jpg" alt="ASG Services Team">
+					<img src="/wp-content/uploads/2026/01/surgeons.jpg" alt="ASG Services Team">
 				</div>
 			</div>
 		</div>
@@ -74,7 +74,7 @@ get_header();
 					<span class="content-eyebrow">Why Choose ASG</span>
 					<h2 class="content-title">The ASG Advantage</h2>
 					<div class="content-body">
-						<p>When you partner with Anesthesia Services Group, you gain access to a network of highly skilled professionals committed to excellence in patient care.</p>
+						<p>When you partner with ASG, you gain access to a network of highly skilled professionals committed to excellence in patient care.</p>
 						<p>Our scalable staffing solutions ensure you always have the coverage you need, while our administrative support handles credentialing, scheduling, and compliance so you can focus on what matters most.</p>
 					</div>
 					<ul class="feature-list">
@@ -85,27 +85,12 @@ get_header();
 					</ul>
 				</div>
 				<div class="content-image">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/services-advantage.jpg" alt="ASG Advantage">
+					<img src="/wp-content/uploads/2026/01/process-1.jpg" alt="ASG Advantage">
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- CTA Section -->
-	<section class="cta-section">
-		<div class="cta-overlay"></div>
-		<div class="cta-content container">
-			<h2 class="cta-title">Ready to Optimize Your Anesthesia Services?</h2>
-			<p class="cta-text">Contact us today to learn how ASG can support your facility with comprehensive anesthesia management solutions.</p>
-			<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">
-				Contact Us
-				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<line x1="5" y1="12" x2="19" y2="12"></line>
-					<polyline points="12 5 19 12 12 19"></polyline>
-				</svg>
-			</a>
-		</div>
-	</section>
 </main>
 
 <?php

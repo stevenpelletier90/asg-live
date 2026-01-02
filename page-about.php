@@ -24,7 +24,7 @@ get_header();
 			<div class="content-row">
 				<div class="content-text">
 					<span class="content-eyebrow">Who We Are</span>
-					<h2 class="content-title">At Anesthesia Services Group...</h2>
+					<h2 class="content-title">At ASG...</h2>
 					<p class="content-lead drop-cap">We pride ourselves on providing quality anesthesia to the highest attribute and make patient care a top priority.</p>
 					<div class="content-body">
 						<p>Our industry-leading Certified Registered Nurse Anesthesiologists combined with our proprietary anesthesia care model facilitate the ideal environment to deliver results that optimize patient care.</p>
@@ -32,7 +32,7 @@ get_header();
 					</div>
 				</div>
 				<div class="content-image">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/about-team.jpg" alt="ASG Medical Team">
+					<img src="/wp-content/uploads/2026/01/team-anesthesia.jpg" alt="ASG Medical Team">
 				</div>
 			</div>
 		</div>
@@ -57,27 +57,12 @@ get_header();
 					</ul>
 				</div>
 				<div class="content-image">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/about-mission.jpg" alt="ASG Patient Care">
+					<img src="/wp-content/uploads/2026/01/operating-room.jpg" alt="ASG Patient Care">
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- CTA Section -->
-	<section class="cta-section">
-		<div class="cta-overlay"></div>
-		<div class="cta-content container">
-			<h2 class="cta-title">Partner With Us Today</h2>
-			<p class="cta-text">Experience the difference that dedicated anesthesia professionals can make for your practice and patients.</p>
-			<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">
-				Get Started
-				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<line x1="5" y1="12" x2="19" y2="12"></line>
-					<polyline points="12 5 19 12 12 19"></polyline>
-				</svg>
-			</a>
-		</div>
-	</section>
 </main>
 
 <?php

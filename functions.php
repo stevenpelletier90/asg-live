@@ -55,6 +55,14 @@ add_action( 'after_setup_theme', 'asg_setup' );
  * Enqueue scripts and styles
  */
 function asg_scripts() {
+	// Font Awesome.
+	wp_enqueue_style(
+		'font-awesome',
+		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+		array(),
+		'6.5.1'
+	);
+
 	// Main stylesheet (required by WordPress).
 	wp_enqueue_style( 'asg-style', get_stylesheet_uri(), array(), ASG_VERSION );
 
@@ -62,7 +70,7 @@ function asg_scripts() {
 	wp_enqueue_style(
 		'asg-main',
 		get_template_directory_uri() . '/assets/css/main.css',
-		array( 'asg-style' ),
+		array( 'asg-style', 'font-awesome' ),
 		ASG_VERSION
 	);
 
