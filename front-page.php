@@ -14,8 +14,8 @@ $hero_slides = asg_get_field( 'hero_slides', array(), 'option' );
 if ( empty( $hero_slides ) ) {
 	$hero_slides = array(
 		array(
-			'title'    => get_bloginfo( 'name' ),
-			'subtitle' => 'Industry-leading anesthesia services for your practice',
+			'logo'     => '/wp-content/uploads/2026/01/asg-750-white.png',
+			'text'     => 'Industry-leading anesthesia services for your practice',
 			'image'    => '/wp-content/uploads/2026/01/hero-sleep1.jpg',
 			'cta_text' => 'Learn More',
 			'cta_link' => '/about/',
@@ -25,7 +25,7 @@ if ( empty( $hero_slides ) ) {
 			'subtitle' => 'Certified professionals dedicated to patient safety',
 			'image'    => '/wp-content/uploads/2026/01/hero-sleep2.jpg',
 			'cta_text' => 'Our Services',
-			'cta_link' => '/services/',
+			'cta_link' => '/anesthesia-management/',
 		),
 		array(
 			'title'    => 'Nationwide Coverage',
@@ -38,8 +38,9 @@ if ( empty( $hero_slides ) ) {
 }
 
 // Get ACF fields for intro section.
-$intro_title    = asg_get_field( 'intro_title', 'Welcome to ' . get_bloginfo( 'name' ), 'option' );
-$intro_subtitle = asg_get_field( 'intro_subtitle', '', 'option' );
+$intro_eyebrow  = asg_get_field( 'intro_eyebrow', 'Welcome to', 'option' );
+$intro_title    = asg_get_field( 'intro_title', 'ASG', 'option' );
+$intro_subtitle = asg_get_field( 'intro_subtitle', 'Anesthesia Providers', 'option' );
 $intro_cards    = asg_get_field( 'intro_cards', array(), 'option' );
 
 // Get ACF fields for CTA section.
@@ -69,9 +70,16 @@ if ( $cta_image ) {
 				<div class="hero-slide<?php echo 0 === $index ? ' is-active' : ''; ?>" style="background-image: url('<?php echo esc_url( $slide_image ); ?>');">
 					<div class="hero-overlay"></div>
 					<div class="hero-content">
-						<h1 class="hero-title"><?php echo esc_html( $slide['title'] ); ?></h1>
-						<?php if ( ! empty( $slide['subtitle'] ) ) : ?>
-							<p class="hero-subtitle"><?php echo esc_html( $slide['subtitle'] ); ?></p>
+						<?php if ( ! empty( $slide['logo'] ) ) : ?>
+							<img src="<?php echo esc_url( $slide['logo'] ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="hero-logo">
+						<?php else : ?>
+							<h1 class="hero-title"><?php echo esc_html( $slide['title'] ); ?></h1>
+							<?php if ( ! empty( $slide['subtitle'] ) ) : ?>
+								<p class="hero-subtitle"><?php echo esc_html( $slide['subtitle'] ); ?></p>
+							<?php endif; ?>
+						<?php endif; ?>
+						<?php if ( ! empty( $slide['text'] ) ) : ?>
+							<p class="hero-text"><?php echo esc_html( $slide['text'] ); ?></p>
 						<?php endif; ?>
 						<?php if ( ! empty( $slide['cta_text'] ) && ! empty( $slide['cta_link'] ) ) : ?>
 							<div class="hero-cta">
@@ -106,9 +114,12 @@ if ( $cta_image ) {
 	<section class="intro-section">
 		<div class="container">
 			<header class="section-header">
+				<?php if ( $intro_eyebrow ) : ?>
+					<span class="section-eyebrow"><?php echo esc_html( $intro_eyebrow ); ?></span>
+				<?php endif; ?>
 				<h2 class="section-title"><?php echo esc_html( $intro_title ); ?></h2>
 				<?php if ( $intro_subtitle ) : ?>
-					<p class="section-subtitle"><?php echo esc_html( $intro_subtitle ); ?></p>
+					<p class="section-subtitle section-subtitle--large"><?php echo esc_html( $intro_subtitle ); ?></p>
 				<?php endif; ?>
 			</header>
 

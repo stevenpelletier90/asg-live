@@ -47,7 +47,7 @@
 		<div class="footer-bottom">
 			<div class="footer-inner">
 				<p class="footer-copyright">
-					&copy; Copyright <?php echo esc_html( gmdate( 'Y' ) ); ?> | by <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a> | All Rights Reserved
+					&copy; Copyright <?php echo esc_html( gmdate( 'Y' ) ); ?> | by <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a> | All Rights Reserved.
 				</p>
 			</div>
 		</div>

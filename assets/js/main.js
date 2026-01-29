@@ -49,6 +49,19 @@
 		menuToggle.setAttribute( 'aria-expanded', ! isExpanded );
 		navigation.classList.toggle( 'is-active' );
 		document.body.classList.toggle( 'menu-open', ! isExpanded );
+
+		// Create or remove overlay.
+		if ( ! isExpanded) {
+			const overlay = document.createElement( 'div' );
+			overlay.className = 'menu-overlay';
+			overlay.addEventListener( 'click', closeMobileMenu );
+			document.body.appendChild( overlay );
+		} else {
+			const overlay = document.querySelector( '.menu-overlay' );
+			if (overlay) {
+				overlay.remove();
+			}
+		}
 	}
 
 	/**
@@ -62,6 +75,11 @@
 		menuToggle.setAttribute( 'aria-expanded', 'false' );
 		navigation.classList.remove( 'is-active' );
 		document.body.classList.remove( 'menu-open' );
+
+		const overlay = document.querySelector( '.menu-overlay' );
+		if (overlay) {
+			overlay.remove();
+		}
 	}
 
 	/**

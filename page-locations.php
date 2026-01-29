@@ -43,7 +43,7 @@ get_header();
 					</div>
 				</div>
 
-				<div class="location-card-display" style="background-image: url('https://images.unsplash.com/photo-1569025743873-ea3a9ber587c?w=600&q=80');">
+				<div class="location-card-display" style="background-image: url('/wp-content/uploads/2026/01/baltimore.jpg');">
 					<div class="location-card-overlay"></div>
 					<div class="location-card-content">
 						<h3 class="location-card-title">Baltimore</h3>
@@ -51,7 +51,7 @@ get_header();
 					</div>
 				</div>
 
-				<div class="location-card-display" style="background-image: url('https://images.unsplash.com/photo-1577084381441-1c780d71c3fe?w=600&q=80');">
+				<div class="location-card-display" style="background-image: url('/wp-content/uploads/2026/01/charlotte.jpg');">
 					<div class="location-card-overlay"></div>
 					<div class="location-card-content">
 						<h3 class="location-card-title">Charlotte</h3>
@@ -115,7 +115,7 @@ get_header();
 					</div>
 				</div>
 
-				<div class="location-card-display" style="background-image: url('https://images.unsplash.com/photo-1558645836-e44122a743ee?w=600&q=80');">
+				<div class="location-card-display" style="background-image: url('/wp-content/uploads/2026/01/phoenix.jpg');">
 					<div class="location-card-overlay"></div>
 					<div class="location-card-content">
 						<h3 class="location-card-title">Phoenix</h3>
@@ -123,7 +123,7 @@ get_header();
 					</div>
 				</div>
 
-				<div class="location-card-display" style="background-image: url('https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=600&q=80');">
+				<div class="location-card-display" style="background-image: url('/wp-content/uploads/2026/01/st-pete.jpg');">
 					<div class="location-card-overlay"></div>
 					<div class="location-card-content">
 						<h3 class="location-card-title">Tampa</h3>
