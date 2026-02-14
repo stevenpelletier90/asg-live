@@ -25,50 +25,16 @@ get_header();
 				<!-- Contact Info -->
 				<div class="contact-info">
 					<h2 class="contact-info-title">Get In Touch</h2>
-					<p class="contact-info-text">Have questions about our anesthesia services? We'd love to hear from you. Reach out using any of the methods below or fill out the form.</p>
+					<p class="contact-info-text">Have questions about our anesthesia services? We'd love to hear from you. Send us an email or fill out the form below.</p>
 
 					<div class="contact-details">
-						<div class="contact-detail">
-							<div class="contact-detail-icon">
-								<i class="fa-solid fa-location-dot"></i>
-							</div>
-							<div class="contact-detail-content">
-								<h3>Address</h3>
-								<address>
-									123 Medical Center Drive<br>
-									Suite 100<br>
-									Miami, FL 33101
-								</address>
-							</div>
-						</div>
-
-						<div class="contact-detail">
-							<div class="contact-detail-icon">
-								<i class="fa-solid fa-phone"></i>
-							</div>
-							<div class="contact-detail-content">
-								<h3>Phone</h3>
-								<a href="tel:+13055551234">(305) 555-1234</a>
-							</div>
-						</div>
-
 						<div class="contact-detail">
 							<div class="contact-detail-icon">
 								<i class="fa-solid fa-envelope"></i>
 							</div>
 							<div class="contact-detail-content">
 								<h3>Email</h3>
-								<a href="mailto:info@asgservices.com">info@asgservices.com</a>
-							</div>
-						</div>
-
-						<div class="contact-detail">
-							<div class="contact-detail-icon">
-								<i class="fa-solid fa-clock"></i>
-							</div>
-							<div class="contact-detail-content">
-								<h3>Hours</h3>
-								<p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday - Sunday: Closed</p>
+								<a href="mailto:info@asg.live">info@asg.live</a>
 							</div>
 						</div>
 					</div>
