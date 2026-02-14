@@ -43,12 +43,12 @@
 :root {
 	/* Colors - ASG Brand Palette */
 	--color-primary: #000064;
-	--color-primary-light: #0456A1;
+	--color-primary-light: #0456a1;
 	--color-primary-dark: #004;
-	--color-accent: #0DC6FF;
+	--color-accent: #0dc6ff;
 	--color-accent-light: #40d4ff;
 	--color-accent-dark: #09c;
-	--color-secondary: #0456A1;
+	--color-secondary: #0456a1;
 	--color-cream: #f0f4f8;
 	--color-cream-dark: #e1e8ed;
 	--color-white: #fff;
@@ -58,8 +58,8 @@
 	--color-border: #d0d8e0;
 
 	/* Typography */
-	--font-heading: "Lexend", system-ui, -apple-system, sans-serif;
-	--font-body: "Lora", georgia, serif;
+	--font-heading: 'Lexend', system-ui, -apple-system, sans-serif;
+	--font-body: 'Lora', georgia, serif;
 
 	/* Spacing */
 	--space-xs: 0.25rem;
@@ -238,7 +238,7 @@ p:last-child {
 	bottom: 0;
 	left: 0;
 	height: 1px;
-	content: "";
+	content: '';
 	background: linear-gradient(90deg, transparent, var(--color-border), transparent);
 	opacity: 1;
 	transition: opacity var(--transition-base);
@@ -357,7 +357,7 @@ p:last-child {
 	bottom: 0;
 	left: 0.75rem;
 	height: 2px;
-	content: "";
+	content: '';
 	background: var(--color-accent);
 	transform: scaleX(0);
 	transform-origin: right;
@@ -474,19 +474,19 @@ p:last-child {
 	transform: translateY(6px);
 }
 
-.menu-toggle[aria-expanded="true"] .hamburger span:nth-child(1) {
+.menu-toggle[aria-expanded='true'] .hamburger span:nth-child(1) {
 	transform: rotate(45deg);
 }
 
-.menu-toggle[aria-expanded="true"] .hamburger span:nth-child(2) {
+.menu-toggle[aria-expanded='true'] .hamburger span:nth-child(2) {
 	opacity: 0;
 }
 
-.menu-toggle[aria-expanded="true"] .hamburger span:nth-child(3) {
+.menu-toggle[aria-expanded='true'] .hamburger span:nth-child(3) {
 	transform: rotate(-45deg);
 }
 
-.menu-toggle[aria-expanded="true"] {
+.menu-toggle[aria-expanded='true'] {
 	background: var(--color-cream);
 }
 
@@ -694,7 +694,8 @@ p:last-child {
 }
 
 @keyframes bounce-down {
-	0%, 100% {
+	0%,
+	100% {
 		transform: translateY(0);
 	}
 
@@ -814,7 +815,9 @@ p:last-child {
 	background-position: center;
 	background-size: cover;
 	opacity: 0;
-	transition: opacity 0.8s ease, visibility 0.8s ease;
+	transition:
+		opacity 0.8s ease,
+		visibility 0.8s ease;
 }
 
 .hero-slide.is-active {
@@ -856,7 +859,9 @@ p:last-child {
 	margin-bottom: var(--space-xl);
 	opacity: 0;
 	transform: translateY(30px);
-	transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+	transition:
+		opacity 0.6s ease 0.2s,
+		transform 0.6s ease 0.2s;
 }
 
 .hero-slide.is-active .hero-logo {
@@ -874,7 +879,9 @@ p:last-child {
 	text-shadow: 0 2px 20px rgb(0 0 0 / 20%);
 	opacity: 0;
 	transform: translateY(30px);
-	transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+	transition:
+		opacity 0.6s ease 0.2s,
+		transform 0.6s ease 0.2s;
 }
 
 .hero-slide.is-active .hero-title {
@@ -891,7 +898,9 @@ p:last-child {
 	color: rgb(255 255 255 / 90%);
 	opacity: 0;
 	transform: translateY(30px);
-	transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+	transition:
+		opacity 0.6s ease 0.4s,
+		transform 0.6s ease 0.4s;
 }
 
 .hero-slide.is-active .hero-subtitle {
@@ -908,7 +917,9 @@ p:last-child {
 	color: rgb(255 255 255 / 85%);
 	opacity: 0;
 	transform: translateY(30px);
-	transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+	transition:
+		opacity 0.6s ease 0.5s,
+		transform 0.6s ease 0.5s;
 }
 
 .hero-slide.is-active .hero-text {
@@ -920,7 +931,9 @@ p:last-child {
 	margin-top: var(--space-md);
 	opacity: 0;
 	transform: translateY(30px);
-	transition: opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s;
+	transition:
+		opacity 0.6s ease 0.6s,
+		transform 0.6s ease 0.6s;
 }
 
 .hero-slide.is-active .hero-cta {
@@ -1127,7 +1140,9 @@ p:last-child {
 	background: var(--color-white);
 	border-radius: var(--radius-lg);
 	box-shadow: var(--shadow-sm);
-	transition: box-shadow var(--transition-base), transform var(--transition-base);
+	transition:
+		box-shadow var(--transition-base),
+		transform var(--transition-base);
 }
 
 .intro-card:hover {
@@ -1179,7 +1194,9 @@ p:last-child {
 	font-size: 0.9375rem;
 	font-weight: 600;
 	color: var(--color-accent-dark);
-	transition: color var(--transition-fast), gap var(--transition-fast);
+	transition:
+		color var(--transition-fast),
+		gap var(--transition-fast);
 }
 
 .intro-card-link:hover {
@@ -1265,7 +1282,7 @@ p:last-child {
 	left: 10%;
 	z-index: 1;
 	height: 2px;
-	content: "";
+	content: '';
 	background: var(--color-cream-dark);
 }
 
@@ -1344,7 +1361,7 @@ p:last-child {
 	width: 80%;
 	height: 200%;
 	pointer-events: none;
-	content: "";
+	content: '';
 	background: radial-gradient(circle, rgb(61 154 139 / 8%) 0%, transparent 60%);
 }
 
@@ -1430,7 +1447,9 @@ p:last-child {
 	background: var(--color-white);
 	border-radius: var(--radius-lg);
 	box-shadow: var(--shadow-sm);
-	transition: box-shadow var(--transition-base), transform var(--transition-base);
+	transition:
+		box-shadow var(--transition-base),
+		transform var(--transition-base);
 }
 
 .location-card:hover {
@@ -1808,7 +1827,7 @@ p:last-child {
 	left: 0;
 	width: 8px;
 	height: 8px;
-	content: "";
+	content: '';
 	background: var(--color-accent);
 	border-radius: 50%;
 }
@@ -1955,7 +1974,6 @@ p:last-child {
 		background: rgb(0 0 0 / 50%);
 		animation: fade-in 0.25s ease;
 	}
-
 
 	.main-navigation {
 		position: fixed;
