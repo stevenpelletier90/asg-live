@@ -14,9 +14,6 @@ export default [
 		},
 		rules: {
 			...js.configs.recommended.rules,
-			'no-var': 'error',
-			'prefer-const': 'error',
-			eqeqeq: 'error',
 			'no-unused-vars': ['warn', { args: 'none' }],
 		},
 	},
