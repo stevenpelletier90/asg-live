@@ -44,11 +44,11 @@ $intro_subtitle = asg_get_field( 'intro_subtitle', 'Anesthesia Providers', 'opti
 $intro_cards    = asg_get_field( 'intro_cards', array(), 'option' );
 
 // Get ACF fields for CTA section.
-$cta_title    = asg_get_field( 'cta_title', '', 'option' );
-$cta_text     = asg_get_field( 'cta_text', '', 'option' );
-$cta_button   = asg_get_field( 'cta_button_text', '', 'option' );
-$cta_link     = asg_get_field( 'cta_button_link', '', 'option' );
-$cta_image    = asg_get_field( 'cta_background', false, 'option' );
+$cta_title  = asg_get_field( 'cta_title', '', 'option' );
+$cta_text   = asg_get_field( 'cta_text', '', 'option' );
+$cta_button = asg_get_field( 'cta_button_text', '', 'option' );
+$cta_link   = asg_get_field( 'cta_button_link', '', 'option' );
+$cta_image  = asg_get_field( 'cta_background', false, 'option' );
 
 $cta_style = '';
 if ( $cta_image ) {
@@ -105,7 +105,7 @@ if ( $cta_image ) {
 		<!-- Carousel Dots -->
 		<div class="hero-carousel-dots">
 			<?php foreach ( $hero_slides as $index => $slide ) : ?>
-				<button class="hero-carousel-dot<?php echo 0 === $index ? ' is-active' : ''; ?>" aria-label="Go to slide <?php echo esc_attr( $index + 1 ); ?>" data-slide="<?php echo esc_attr( $index ); ?>"></button>
+				<button class="hero-carousel-dot<?php echo 0 === $index ? ' is-active' : ''; ?>" aria-label="Go to slide <?php echo esc_attr( (string) ( $index + 1 ) ); ?>" data-slide="<?php echo esc_attr( (string) $index ); ?>"></button>
 			<?php endforeach; ?>
 		</div>
 	</section>
@@ -129,7 +129,7 @@ if ( $cta_image ) {
 						<div class="intro-card">
 							<?php if ( ! empty( $card['icon'] ) ) : ?>
 								<div class="intro-card-icon">
-									<img src="<?php echo esc_url( $card['icon']['url'] ); ?>" alt="<?php echo esc_attr( $card['icon']['alt'] ?: $card['title'] ); ?>">
+									<img src="<?php echo esc_url( $card['icon']['url'] ); ?>" alt="<?php echo esc_attr( ! empty( $card['icon']['alt'] ) ? $card['icon']['alt'] : $card['title'] ); ?>">
 								</div>
 							<?php endif; ?>
 							<h3 class="intro-card-title"><?php echo esc_html( $card['title'] ); ?></h3>
@@ -184,16 +184,16 @@ if ( $cta_image ) {
 
 	<!-- CTA Section -->
 	<?php
-	$cta_title_display  = $cta_title ?: 'Call Us for a Consultation';
-	$cta_text_display   = $cta_text ?: 'We are excellent listeners and deeply learn your office needs.';
-	$cta_button_display = $cta_button ?: 'Contact Us';
-	$cta_link_display   = $cta_link ?: '/contact/';
+	$cta_title_display  = ! empty( $cta_title ) ? $cta_title : 'Call Us for a Consultation';
+	$cta_text_display   = ! empty( $cta_text ) ? $cta_text : 'We are excellent listeners and deeply learn your office needs.';
+	$cta_button_display = ! empty( $cta_button ) ? $cta_button : 'Contact Us';
+	$cta_link_display   = ! empty( $cta_link ) ? $cta_link : '/contact/';
 	// Default background image if not set via ACF.
 	if ( empty( $cta_style ) ) {
 		$cta_style = 'background-image: url(/wp-content/uploads/2026/01/anethesia-bg-1.jpg);';
 	}
 	?>
-	<section class="cta-section"<?php echo $cta_style ? ' style="' . esc_attr( $cta_style ) . '"' : ''; ?>>
+	<section class="cta-section" style="<?php echo esc_attr( $cta_style ); ?>">
 		<div class="cta-overlay"></div>
 		<div class="cta-content container">
 			<h2 class="cta-title"><?php echo esc_html( $cta_title_display ); ?></h2>

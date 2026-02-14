@@ -5,11 +5,15 @@
 	<!-- Scan all files in directory -->
 	<file>.</file>
 
+	<!-- Only scan PHP files -->
+	<arg name="extensions" value="php"/>
+
 	<!-- Exclude paths -->
 	<exclude-pattern>/vendor/*</exclude-pattern>
 	<exclude-pattern>/node_modules/*</exclude-pattern>
-	<exclude-pattern>*.min.js</exclude-pattern>
-	<exclude-pattern>*.min.css</exclude-pattern>
+
+	<!-- Cache for faster repeat runs -->
+	<arg name="cache" value=".phpcs-cache"/>
 
 	<!-- Show progress and sniff codes in all reports -->
 	<arg value="ps"/>

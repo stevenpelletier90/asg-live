@@ -16,7 +16,7 @@
 					if ( $footer_logo ) :
 						?>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer-logo">
-							<img src="<?php echo esc_url( $footer_logo['url'] ); ?>" alt="<?php echo esc_attr( $footer_logo['alt'] ?: get_bloginfo( 'name' ) ); ?>" width="<?php echo esc_attr( $footer_logo['width'] ); ?>" height="<?php echo esc_attr( $footer_logo['height'] ); ?>">
+							<img src="<?php echo esc_url( $footer_logo['url'] ); ?>" alt="<?php echo esc_attr( ! empty( $footer_logo['alt'] ) ? $footer_logo['alt'] : get_bloginfo( 'name' ) ); ?>" width="<?php echo esc_attr( $footer_logo['width'] ); ?>" height="<?php echo esc_attr( $footer_logo['height'] ); ?>">
 						</a>
 					<?php elseif ( has_custom_logo() ) : ?>
 						<?php the_custom_logo(); ?>

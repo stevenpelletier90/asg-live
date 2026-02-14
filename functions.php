@@ -109,16 +109,16 @@ add_action( 'acf/init', 'asg_acf_options_page' );
  * Helper function to get ACF field with fallback
  *
  * @param string $field_name The ACF field name.
- * @param mixed  $default    Default value if field is empty.
+ * @param mixed  $fallback   Default value if field is empty.
  * @param mixed  $post_id    Post ID or 'option' for options page.
  * @return mixed
  */
-function asg_get_field( $field_name, $default = '', $post_id = false ) {
+function asg_get_field( $field_name, $fallback = '', $post_id = false ) {
 	if ( ! function_exists( 'get_field' ) ) {
-		return $default;
+		return $fallback;
 	}
 
 	$value = get_field( $field_name, $post_id );
 
-	return ! empty( $value ) ? $value : $default;
+	return ! empty( $value ) ? $value : $fallback;
 }
