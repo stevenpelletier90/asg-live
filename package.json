@@ -1,0 +1,34 @@
+{
+  "name": "asg-live",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint assets/js/",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:fix": "eslint assets/js/ --fix && stylelint \"assets/css/**/*.css\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevenpelletier90/asg-live.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/stevenpelletier90/asg-live/issues"
+  },
+  "homepage": "https://github.com/stevenpelletier90/asg-live#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "globals": "^17.3.0",
+    "stylelint": "^17.3.0",
+    "stylelint-config-recess-order": "^7.6.1",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-order": "^7.0.1"
+  }
+}
