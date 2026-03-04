@@ -22,12 +22,12 @@
 	},
 	"homepage": "https://github.com/stevenpelletier90/asg-live#readme",
 	"devDependencies": {
-		"@eslint/js": "^10.0.0",
-		"eslint": "^10.0.0",
-		"eslint-config-prettier": "^10.0.0",
-		"globals": "^17.3.0",
+		"@eslint/js": "^10.0.1",
+		"eslint": "^10.0.2",
+		"eslint-config-prettier": "^10.1.8",
+		"globals": "^17.4.0",
 		"prettier": "^3.8.1",
-		"stylelint": "^17.3.0",
+		"stylelint": "^17.4.0",
 		"stylelint-config-recess-order": "^7.6.1",
 		"stylelint-config-standard": "^40.0.0"
 	}
